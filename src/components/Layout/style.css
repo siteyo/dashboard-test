@@ -1,0 +1,8 @@
+:root {
+  --maxWidth: 42rem;
+}
+
+.layout {
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+}
