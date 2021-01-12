@@ -28,3 +28,20 @@ h4 {
 h5 {
   font-size: var(--fontSize-2);
 }
+
+/* Home */
+.home {
+  display: grid;
+  grid-template-columns: 400px 300px;
+}
+
+.card-list {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.card-list p {
+  position: absolute;
+  top: 0;
+}
