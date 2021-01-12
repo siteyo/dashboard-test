@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Pie } from 'react-chartjs-2';
+import { GlobalContext } from '../contexts/Global';
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow'],
@@ -13,6 +14,8 @@ const data = {
 };
 
 const Home = () => {
+  const { period, _ } = useContext(GlobalContext);
+
   return (
     <div className="home">
       <div>
@@ -21,6 +24,7 @@ const Home = () => {
       <div className="card-list">
         <h2>Home</h2>
         <p>test text</p>
+        {period}
       </div>
     </div>
   );
