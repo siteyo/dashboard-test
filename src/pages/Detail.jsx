@@ -1,22 +1,24 @@
-import React from 'react';
-import useApi from '../hooks/use-api';
+import React, { useState, useEffect } from 'react';
 
 const Detail = () => {
-  const [data, isLoading] = useApi(
-    'http://geoapi.heartrails.com/api/json?method=getPrefectures',
-  );
-  let loading;
+  const [data, setData] = useState(null);
 
-  if (isLoading) {
-    loading = <h3>Loading</h3>;
-  } else {
-    loading = <p>{data}</p>;
-  }
+  const fetchData = async () => {
+    const response = await fetch(
+      'http://geoapi.heartrails.com/api/json?method=getPrefectures',
+    );
+    const responseJson = await response.json();
+    setData(responseJson.response.prefecture);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div>
       <h2>Detail</h2>
-      {loading}
+      {data}
     </div>
   );
 };
